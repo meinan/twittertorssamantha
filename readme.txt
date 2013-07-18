@@ -17,7 +17,7 @@ Usage
 ================================================================================
 >bash twittertorssamantha.bsh
 
-Properties 
+Properties
 ================================================================================
 twitter4j.debug=true
 twitter4j.oauth.consumerKey=*******

@@ -6,6 +6,7 @@ the user statuses and sending items via HTTP POST to RSSamantha.
 
 See: http://sourceforge.net/projects/rssamantha/
 See: http://twitter4j.org/en/index.html
+See: https://dev.twitter.com/
 
 Installation 
 ================================================================================

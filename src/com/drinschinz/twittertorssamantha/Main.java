@@ -132,12 +132,12 @@ public class Main
 			try
 			{
 				List<Status> statuses = twitter.getUserTimeline(u.uid);
-			    log("Showing home timeline of "+u.uid);
-			    for(Status status : statuses) 
-			    {
-			        log(status.getUser().getName() + ":" +status.getText()+" ts:"+status.getCreatedAt()+" id:"+status.getId());
-			        sendItem("["+status.getUser().getName().trim()+"] "+status.getText(), status.getCreatedAt(), "https://twitter.com/"+u.uid+"/status/"+status.getId(), u.channel);
-			    }
+				log("Showing home timeline of "+u.uid);
+				for(Status status : statuses) 
+				{
+					log(status.getUser().getName() + ":" +status.getText()+" ts:"+status.getCreatedAt()+" id:"+status.getId());
+					sendItem("["+status.getUser().getName().trim()+"] "+status.getText(), status.getCreatedAt(), "https://twitter.com/"+u.uid+"/status/"+status.getId(), u.channel);
+				}
 			}
 			catch(TwitterException te)
 			{

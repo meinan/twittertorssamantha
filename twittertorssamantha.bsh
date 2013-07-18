@@ -1,0 +1,8 @@
+#!/bin/bash
+#
+# Address absolute in order to run by cron.
+#
+JVM=java
+WF="/home/username/twittertorssamantha/"
+CP=$WF"twittertorssamantha.jar:"$WF"lib/twitter4j-core-3.0.3.jar"
+$JVM -cp $CP com.drinschinz.twittertorssamantha.Main $WF"twittertorssamantha.properties"

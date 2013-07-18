@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="twittertorssamantha" default="init" basedir=".">
+	<description>Builds the project twittertorssamantha</description>
+
+    <target name="init">    	
+        <property name="dist" value="dist"/>
+        <echo message="dist: ${dist}"/>
+        <mkdir dir="${dist}"/>
+        <mkdir dir="classes"/>
+    </target>
+
+    <target description="Clean all build products." name="clean">
+        <delete dir="classes\"></delete>
+		<delete dir="dist"/>
+	</target>
+
+    <target depends="init" name="compile">
+        <javac target="1.7" source="1.7" deprecation="true" destdir="classes" srcdir="src/com" includeAntRuntime="false">
+        	<classpath><pathelement location="lib/twitter4j-core-3.0.3.jar"/></classpath>
+        </javac>
+    </target>
+
+    <target depends="clean,compile" name="jar">
+		<echo file="MANIFEST.MF" message="Manifest-Version: 1.0&#10;Main-Class: com.drinschinz.twittertorssamantha.Main&#10;"/>
+		<jar basedir="classes" compress="true" jarfile="dist/twittertorssamantha.jar" manifest="MANIFEST.MF">
+        </jar>
+    </target>
+	
+	<target depends="jar" name="deploy">
+		<mkdir dir="dist/twittertorssamantha"/>
+		<mkdir dir="dist/twittertorssamantha/lib/"/>
+		<copy file="dist/twittertorssamantha.jar" tofile="dist/twittertorssamantha/twittertorssamantha.jar"/>
+		<copy file="readme.txt" tofile="dist/twittertorssamantha/readme.txt"/>
+		<copy file="twittertorssamantha.properties" tofile="dist/twittertorssamantha/twittertorssamantha.properties"/>
+		<copy file="twittertorssamantha.bsh" tofile="dist/twittertorssamantha/twittertorssamantha.bsh"/>
+		<copy file="lib/twitter4j-core-3.0.3.jar" tofile="dist/twittertorssamantha/lib/twitter4j-core-3.0.3.jar"/>
+		<copy file="lib/readme.txt" tofile="dist/twittertorssamantha/lib/readme.txt"/>
+		<copy file="lib/LICENSE.txt" tofile="dist/twittertorssamantha/lib/LICENSE.txt"/>
+		<zip destfile="dist/twittertorssamantha.zip" basedir="dist" 
+			excludes="twittertorssamantha.zip, twittertorssamantha.jar"
+		/>
+    </target>
+
+</project>

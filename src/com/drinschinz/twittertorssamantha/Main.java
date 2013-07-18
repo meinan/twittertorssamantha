@@ -49,7 +49,7 @@ public class Main
 	
 	static class Uid
 	{
-		String uid,channel;
+		String uid, channel;
 		
 		Uid(String u, String c)
 		{

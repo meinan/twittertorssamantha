@@ -77,7 +77,7 @@ public class Main
 		catch(Exception e)
 		{
 			e.printStackTrace();
-			throw new RuntimeException("ERROR initialization");
+			throw new RuntimeException("ERROR during initialization");
 		}
 		processUserStatuses();
 		cleanup();
